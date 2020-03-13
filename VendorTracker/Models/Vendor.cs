@@ -19,6 +19,24 @@ namespace VendorTracker.Models
       Orders = new List<Order>{};
     }
 
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
 
+    public static List<Order> GetAll()
+    {
+      return _instances;
+    }
+
+    public static Vendor Find(int searchId)
+    {
+      return _instances [searchId - 1];
+    }
+
+    public void AddVendor(Vendor vendor)
+    {
+      Vendor.Add(vendor);
+    }
   }
 }
