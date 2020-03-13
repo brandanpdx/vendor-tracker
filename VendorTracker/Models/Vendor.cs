@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace VendorTracker.Models 
@@ -19,12 +20,12 @@ namespace VendorTracker.Models
       Orders = new List<Order>{};
     }
 
-    public static void ClearAll()
+    public void ClearAll()
     {
-      _instances.Clear();
+      Orders.Clear();
     }
 
-    public static List<Order> GetAll()
+    public static List<Vendor> GetAll()
     {
       return _instances;
     }
@@ -34,9 +35,9 @@ namespace VendorTracker.Models
       return _instances [searchId - 1];
     }
 
-    public void AddVendor(Vendor vendor)
+    public void AddOrder(Order order)
     {
-      Vendor.Add(vendor);
+      Orders.Add(order);
     }
   }
 }

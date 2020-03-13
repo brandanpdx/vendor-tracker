@@ -5,7 +5,7 @@ using VendorTracker.Models;
 
 namespace VendorTracker.Controllers
 {
-  public class AlbumController : Controller
+  public class OrderController : Controller
   {
     [HttpGet("/vendor/{vendorId}/order/{orderId}")]
     public ActionResult Show(int vendorId, int orderId)

@@ -11,7 +11,7 @@ namespace VendorTracker.Controllers
     public ActionResult Index()
     {
       List<Vendor> allVendors = Vendor.GetAll();
-      return view (allVendors);
+      return View (allVendors);
     }
 
     [HttpGet("/vendor/new")]
@@ -21,7 +21,7 @@ namespace VendorTracker.Controllers
     }
 
     [HttpPost("/vendor")]
-    public ActionResult Create(string vendorName)
+    public ActionResult Create(string vendorName, string vendorDesc)
     {
       Vendor newVendor = new Vendor(vendorName, vendorDesc);
       return RedirectToAction("Index");
@@ -36,10 +36,19 @@ namespace VendorTracker.Controllers
       model.Add("vendor", selectedVendor);
       model.Add("order", vendorOrder);
       return View (model);
-
     }
 
-
-
+    [HttpPost("vendor/{vendorId}/order")]
+    public Action Create(int vendorId, string orderName)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(orderName);
+      foundVendor.AddOrder(newOrder);
+      List<Order> vendorOrder = foundVendor.Orders;
+      model.Add("order", vendorOrder);
+      model.Add("vendor", foundVendor);
+      return View("Show", model);
+    }
   }
 }
