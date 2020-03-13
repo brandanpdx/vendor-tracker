@@ -10,7 +10,14 @@ namespace VendorTracker.Controllers
     [HttpGet("/vendor")]
     public ActionResult Index()
     {
+      List<Vendor> allVendors = Vendor.GetAll();
+      return view (allVendors);
+    }
 
+    [HttpGet("/vendor/new")]
+    public ActionResult New()
+    {
+      return View();
     }
   }
 }
