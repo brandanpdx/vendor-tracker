@@ -10,6 +10,14 @@ This is the Epicodus independent end-of-week assignment for Friday, March 13, 20
 
 | Specification             | Input 	|     Output      |
 |-------------------------	|-------	|----------------	|
+|If user visits '/' root route, display splash page with link to '/vendors' | user visits '/' route | display home|
+| If user visits '/vendors' display list of all vendors, each with 'view menu' button, and 'add new vendor' button | user visits '/vendors' | display list of vendors|
+| If user clicks 'Add new vendor' button, redirect to vendor form | clicks 'add new vendor' | redirect to '/vendors/new'|
+| If user visits '/vendors/new' show new vendors form with field for "Vendor Name" | user visits '/vendors/new' | show vendor form |
+| If user clicks submit on vendor form, add new vendor to List and redirect to '/vendors' | clicks submit | Add newvendor to List, redirect to '/vendors' |
+| If user visits '/vendors/{id}', they will see the details of the vendor, including the menu items and buttons for 'Add new order' and 'go back'. | user visits vendor page | show vendor info and menu |
+
+Specs to be continued...
 
 
 ## Setup/Installation Requirements
